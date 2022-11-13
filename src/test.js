@@ -49,4 +49,5 @@ btnFast.onclick = () => {
     pause()
     time = 0
     id = play();
+
 }
