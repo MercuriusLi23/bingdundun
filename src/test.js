@@ -1,81 +1,52 @@
-import string from './css.js'         //导入
+import string from './css.js'         //导入css.js文件  （模块化）
 let n = 1
-demo1.innerText = string
-demo2.innerHTML = string
-let time = 78;
+demo1.innerText = string.substr(0, n)   //从0到n展示string的子字符串
+demo2.innerHTML = string.substr(0, n)
 
-let id = setInterval(() => {
+let time = 80;
+
+const run = () => {
     n += 1
     if (n > string.length) {
         window.clearInterval(id)
         return
     }
-    demo1.innerText = string
-    demo2.innerHTML = string
-    demo1.scrollTop = demo1.scrollHeight
+    demo1.innerText = string.substr(0, n)
+    demo2.innerHTML = string.substr(0, n)
+    demo1.scrollTop = demo1.scrollHeight           //设置滚动条随内容输出自行滚动，一直拉到最下面
 
-}, time);
+}
+const play = () => {
+    return setInterval(run, time)
+}
 
-btnPause.onclick = () => {
+const pause = () => {
     window.clearInterval(id)
 }
-btnPause.onclick = () => {
-    id = setInterval(() => {
-        n += 1
-        if (n > string.length) {
-            window.clearInterval(id)
-            return
-        }
-        demo1.innerText = string
-        demo2.innerHTML = string
-        demo1.scrollTop = demo1.scrollHeight
 
-    }, time);
+let id = play()
+
+btnPause.onclick = () => {
+    pause()
+}
+
+btnPlay.onclick = () => {
+    id = play();
 }
 
 btnSlow.onclick = () => {
-    window.clearInterval(id)
+    pause()
     time = 300
-    id = setInterval(() => {
-        n += 1
-        if (n > string.length) {
-            window.clearInterval(id)
-            return
-        }
-        demo1.innerText = string
-        demo2.innerHTML = string
-        demo1.scrollTop = demo1.scrollHeight
-
-    }, time);
+    id = play();
 }
 btnNormal.onclick = () => {
-    window.clearInterval(id)
-    time = 78
-    id = setInterval(() => {
-        n += 1
-        if (n > string.length) {
-            window.clearInterval(id)
-            return
-        }
-        demo1.innerText = string
-        demo2.innerHTML = string
-        demo1.scrollTop = demo1.scrollHeight
-
-    }, time);
+    pause()
+    time = 80
+    id = play();
 }
 
 btnFast.onclick = () => {
-    window.clearInterval(id)
+    pause()
     time = 0
-    id = setInterval(() => {
-        n += 1
-        if (n > string.length) {
-            window.clearInterval(id)
-            return
-        }
-        demo1.innerText = string
-        demo2.innerHTML = string
-        demo1.scrollTop = demo1.scrollHeight
-
-    }, time);
+    id = play();
 }
