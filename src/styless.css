@@ -153,7 +153,8 @@
     border-radius: 98px 124px 82px 84px/104px 93px 66px 70px;
     background-color: #fff;
     z-index: -4;
-    box-shadow: rgb(102, 201, 253) 0 0 0 3px,
+    box-shadow:
+        rgb(102, 201, 253) 0 0 0 3px,
         rgb(173, 35, 96) 0 0 0 5px,
         rgb(81, 122, 183) 0 0 0 7px,
         rgb(250, 198, 70) 0 0 0 9px,
